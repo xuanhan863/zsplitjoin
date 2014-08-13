@@ -3,9 +3,11 @@
 
 from distutils.core import setup
 
+from zsplitjoin import __version__
+
 setup(
     name='zsplitjoin',
-    version='1.0.0',
+    version=__version__,
     description='Simple split and join files.',
     long_description=open('README.md').read(),
     author='Marcelo Fonseca Tambalo',
