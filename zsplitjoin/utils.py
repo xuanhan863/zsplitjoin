@@ -30,20 +30,20 @@ def files_iter(path):
 
 
 def create_file_name(path):
-    exit_file_path = Path(path.name.replace('.part1', ''))
-    exit_file_ext = exit_file_path.ext or '.dat'
+    output_file_path = Path(path.name.replace('.part1', ''))
+    output_file_ext = output_file_path.ext or '.dat'
     c = 0
-    while exit_file_path.exists():
-        aux = exit_file_path.name.replace(
-            ' (%d)%s' % ((c - 1), exit_file_ext),
-            exit_file_ext
+    while output_file_path.exists():
+        aux = output_file_path.name.replace(
+            ' (%d)%s' % ((c - 1), output_file_ext),
+            output_file_ext
         ).replace(
-            exit_file_ext,
-            " (%d)%s" % (c, exit_file_ext)
+            output_file_ext,
+            " (%d)%s" % (c, output_file_ext)
         )
-        exit_file_path = Path(aux)
+        output_file_path = Path(aux)
         c += 1
-    return exit_file_path
+    return output_file_path
 
 
 units = {
