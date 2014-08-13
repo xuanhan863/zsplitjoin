@@ -12,6 +12,7 @@ setup(
     author_email='marcelo.zokis@gmail.com',
     url='https://github.com/zokis/zsplitjoin',
     packages=['zsplitjoin'],
+    install_requires=['unipath==1.0'],
     classifiers=(
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: MIT License",
