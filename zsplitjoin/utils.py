@@ -1,5 +1,4 @@
 # coding: utf-8
-
 from unipath import Path
 
 
@@ -10,9 +9,10 @@ def read_in_chunks(file_object, chunk_size):
             break
         yield data
 
+
 def files_iter(path):
-    file_name = path.name.replace('.part1', '')
-    file_name_base = '{file_name}.part%d'.format(file_name=file_name)
+    origin_file = path.name.replace('.part1', '')
+    file_name_base = '{file_name}.part%d'.format(file_name=origin_file)
     i = 1
     while True:
         p = Path(file_name_base % i)

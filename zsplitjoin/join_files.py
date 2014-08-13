@@ -4,6 +4,7 @@ from unipath import Path
 
 
 def join_file(path, exit_file_name=None, chunk_size=1024):
+    path = Path(path)
     if exit_file_name is None:
         exit_file_path = create_file_name(path)
     else:

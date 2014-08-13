@@ -2,16 +2,12 @@
 from .utils import read_in_chunks
 from unipath import Path
 
+
 def split_file(path, number_of_files=2, new_file_size=None, exit_file_name=None, chunk_size=1024):
-    if number_of_files is None and new_file_size is None:
-        raise Exception(u'Define number_of_files or new_file_size')
+    path = Path(path)
     if number_of_files is None:
-        if new_file_size <= 1024:
-            raise Exception(u'new_file_size <= 1024')
         number_of_files = path.size() / new_file_size
     else:
-        if number_of_files <= 0:
-            raise Exception(u'number_of_files <= 0')
         new_file_size = path.size() / number_of_files
 
     if exit_file_name is None:
