@@ -1,6 +1,6 @@
 # coding: utf-8
-from .utils import read_in_chunks, create_file_name, files_iter
 from unipath import Path
+from .utils import create_file_name, files_iter, read_in_chunks
 
 
 def join_file(path, exit_file_name=None, chunk_size=1024):
