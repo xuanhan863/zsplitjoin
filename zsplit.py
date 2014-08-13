@@ -5,11 +5,12 @@ from zsplitjoin import split_file
 
 
 def main():
-    opar = OptionParser()
+    usage = 'Usage: zsplit.py [options] [file]\n outputs will have extensions .part[n...]'
+    opar = OptionParser(usage=usage)
     opar.add_option("-n", "--number", dest="number",
                     help="number of files", type="int", default=None)
     opar.add_option("-s", "--size", dest="size",
-                    help="size of the output files", type="str", default=None)
+                    help="splitted file size", type="str", default=None)
     opar.add_option("-o", "--output", dest="output",
                     help="output file name", type="str", default=None)
     opar.add_option("-c", "--chunk", dest="chunk",
