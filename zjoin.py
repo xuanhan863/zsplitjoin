@@ -5,7 +5,8 @@ from zsplitjoin import join_file
 
 
 def main():
-    opar = OptionParser()
+    usage = 'Usage: zjoin.py [options] [file]\n the file must have the extension .part1'
+    opar = OptionParser(usage=usage)
     opar.add_option("-o", "--output", dest="output",
                     help="output file name", type="str", default=None)
     opar.add_option("-c", "--chunk", dest="chunk",
