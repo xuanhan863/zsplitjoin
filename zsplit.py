@@ -24,7 +24,7 @@ def main():
     split_file(
         args[1],
         number_of_files=options.number,
-        new_file_size=options.size,
+        splitted_file_size=options.size,
         output_file_name=options.output,
         chunk_size=options.chunk
     )
