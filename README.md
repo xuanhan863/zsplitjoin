@@ -22,10 +22,10 @@ $ ll joined.bz2
 -rw-r--r-- 1 usr usr 159M Ago 13 17:31 joined.bz2
 $ md5sum joined.bz2 
 61a9b4dbc87d94446af63486e326cb4f  joined.bz2
+$
+$
 $ rm splited.part*
 $ rm joined.bz2
-$
-$
 $ ./zsplit.py BYTES.bz2 -s 50M -o splited -c 2K
 $ ll splited.part*
 -rw-r--r-- 1 usr usr 50M Ago 13 17:31 splited.part1
@@ -36,10 +36,10 @@ $ ll joined.bz2
 -rw-r--r-- 1 usr usr 159M Ago 13 17:32 joined.bz2
 $ md5sum joined.bz2 
 61a9b4dbc87d94446af63486e326cb4f  joined.bz2
+$
+$
 $ rm splited.part*
 $ rm joined.bz2
-$
-$
 $ ./zsplit.py BYTES.bz2 -s 50M -o splited -c 2K -I
 $ ll splited.part*
 -rw-r--r-- 1 usr usr  50M Ago 13 17:32 splited.part1
