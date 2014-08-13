@@ -36,5 +36,27 @@ $ md5sum joined.bz2
 61a9b4dbc87d94446af63486e326cb4f  joined.bz2
 $ md5sum BYTES.bz2
 61a9b4dbc87d94446af63486e326cb4f  BYTES.bz2
+$ rm splited.part*
+$ rm joined.bz2 
+$ ./zsplit.py BYTES.bz2 -s 50M -o splited -c 2K --increase
+$ ll splited.part*
+-rw-r--r-- 1 user user  50M Ago 13 17:20 splited.part1
+-rw-r--r-- 1 user user  50M Ago 13 17:20 splited.part2
+-rw-r--r-- 1 user user  50M Ago 13 17:20 splited.part3
+-rw-r--r-- 1 user user 8,1M Ago 13 17:20 splited.part4
+$ rm splited.part*
+$ ./zsplit.py BYTES.bz2 -s 50M -o splited -c 2K -I
+$ ll splited.part*
+-rw-r--r-- 1 user user  50M Ago 13 17:22 splited.part1
+-rw-r--r-- 1 user user  50M Ago 13 17:22 splited.part2
+-rw-r--r-- 1 user user  50M Ago 13 17:22 splited.part3
+-rw-r--r-- 1 user user 8,1M Ago 13 17:22 splited.part4
+$ ./zjoin.py -c 1K -o joined.bz2 splited.part1
+$ ll joined.bz2
+-rw-r--r-- 1 znc znc 159M Ago 13 17:22 joined.bz2
+$ md5sum joined.bz2
+61a9b4dbc87d94446af63486e326cb4f  joined.bz2
+$ md5sum BYTES.bz2
+61a9b4dbc87d94446af63486e326cb4f  BYTES.bz2
 $
 ```

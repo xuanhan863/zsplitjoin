@@ -15,6 +15,9 @@ def main():
                     help="output file name", type="str", default=None)
     opar.add_option("-c", "--chunk", dest="chunk",
                     help="chunk size", type="str", default='1K')
+    opar.add_option("-I", "--no-increase", dest="increase",
+                    help="no increase last file", action="store_false",
+                    default=True)
 
     options, args = opar.parse_args(sys.argv)
     if len(args) <= 1:
@@ -26,7 +29,8 @@ def main():
         number_of_files=options.number,
         splitted_file_size=options.size,
         output_file_name=options.output,
-        chunk_size=options.chunk
+        chunk_size=options.chunk,
+        increase=options.increase
     )
 
 
