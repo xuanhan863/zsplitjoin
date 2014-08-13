@@ -3,17 +3,19 @@ from unipath import Path
 from .utils import get_size, read_in_chunks
 
 
-def split_file(path, number_of_files=2, new_file_size=None, output_file_name=None, chunk_size=1024):
-    if new_file_size:
+def split_file(path, number_of_files, new_file_size, output_file_name, chunk_size):
+    if not new_file_size is None:
         new_file_size = get_size(new_file_size)
     chunk_size = get_size(chunk_size)
     path = Path(path)
 
     origin_file_size = path.size()
 
-    if number_of_files is None:
+    if new_file_size and number_of_files is None:
         number_of_files = origin_file_size / new_file_size
     else:
+        if number_of_files is None:
+            number_of_files = 5
         new_file_size = origin_file_size / number_of_files
 
     if output_file_name is None:
