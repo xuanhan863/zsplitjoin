@@ -2,7 +2,6 @@
 # coding: utf-8
 
 from distutils.core import setup
-
 from zsplitjoin import __version__
 
 setup(
