@@ -1,4 +1,5 @@
 # coding: utf-8
+import re
 from unipath import Path
 
 
@@ -29,7 +30,7 @@ def create_file_name(path):
     c = 0
     while exit_file_path.exists():
         aux = exit_file_path.name.replace(
-            ' (%d)%s' % ((c-1), exit_file_ext),
+            ' (%d)%s' % ((c - 1), exit_file_ext),
             exit_file_ext
         ).replace(
             exit_file_ext,
@@ -38,3 +39,27 @@ def create_file_name(path):
         exit_file_path = Path(aux)
         c += 1
     return exit_file_path
+
+
+units = {
+    'P': lambda x: x * 32 ** 10,
+    'T': lambda x: x * 16 ** 10,
+    'G': lambda x: x * 8 ** 10,
+    'M': lambda x: x * 4 ** 10,
+    'K': lambda x: x * 2 ** 10,
+    'B': lambda x: x * 1 ** 10
+}
+
+
+def human_size_to_bytes(human_size):
+    regex = re.compile("(?P<size>\d+)(?P<unit>[%s]{1})" % '|'.join(units))
+    r = regex.search(human_size)
+    size, unit = r.groups()
+    return units[unit](int(size))
+
+
+def get_size(size):
+    if isinstance(size, basestring):
+        if not size.isdigit():
+            size = human_size_to_bytes(size)
+    return int(size)
