@@ -2,6 +2,11 @@
 import re
 from unipath import Path
 
+try:
+    unicode = unicode
+except NameError:
+    basestring = (str, bytes)
+
 
 def read_in_chunks(file_object, chunk_size):
     while True:
@@ -53,12 +58,12 @@ units = {
 
 def human_size_to_bytes(human_size):
     regex = re.compile("(?P<size>\d+)(?P<unit>[%s]{1})" % '|'.join(units))
-    r = regex.search(human_size)
+    r = regex.search(human_size.upper())
     size, unit = r.groups()
-    return units[unit](int(size))
+    return units[unit](int(size) or 1)
 
 
-def get_size(size):
+def get_real_size(size):
     if isinstance(size, basestring):
         if not size.isdigit():
             size = human_size_to_bytes(size)

@@ -17,7 +17,7 @@ def main():
 
     options, args = opar.parse_args(sys.argv)
     if len(args) <= 1:
-        print 'invalid input'
+        print('invalid input')
         sys.exit(0)
 
     split_file(

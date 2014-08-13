@@ -13,7 +13,7 @@ def main():
 
     options, args = opar.parse_args(sys.argv)
     if len(args) <= 1:
-        print 'invalid input'
+        print('invalid input')
         sys.exit(0)
 
     join_file(args[1], output_file_name=options.output, chunk_size=options.chunk)
