@@ -5,7 +5,7 @@ from distutils.core import setup
 
 setup(
     name='zsplitjoin',
-    version='0.1.0',
+    version='1.0.0',
     description='Simple split and join files.',
     long_description=open('README.md').read(),
     author='Marcelo Fonseca Tambalo',
