@@ -47,12 +47,12 @@ def create_file_name(path):
 
 
 units = {
-    'P': lambda x: x * 32 ** 10,
-    'T': lambda x: x * 16 ** 10,
-    'G': lambda x: x * 8 ** 10,
-    'M': lambda x: x * 4 ** 10,
-    'K': lambda x: x * 2 ** 10,
-    'B': lambda x: x * 1 ** 10
+    'P': lambda x: x * (2**5) ** 10,
+    'T': lambda x: x * (2**4) ** 10,
+    'G': lambda x: x * (2**3) ** 10,
+    'M': lambda x: x * (2**2) ** 10,
+    'K': lambda x: x * (2**1) ** 10,
+    'B': lambda x: x * (2**0) ** 10
 }
 
 
