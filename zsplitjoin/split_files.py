@@ -4,18 +4,18 @@ from unipath import Path
 from .utils import get_real_size, read_in_chunks
 
 
-def split_file(path, number_of_files, new_file_size, output_file_name, chunk_size):
+def split_file(path, number_of_files, splitted_file_size, output_file_name, chunk_size):
     path = Path(path)
-    if not new_file_size is None:
-        new_file_size = get_real_size(new_file_size)
+    if not splitted_file_size is None:
+        splitted_file_size = get_real_size(splitted_file_size)
     chunk_size = get_real_size(chunk_size)
     origin_file_size = path.size()
-    if new_file_size and number_of_files is None:
-        number_of_files = ceil(origin_file_size / new_file_size)
+    if splitted_file_size and number_of_files is None:
+        number_of_files = ceil(origin_file_size / splitted_file_size)
     else:
         if number_of_files is None:
             number_of_files = 5
-        new_file_size = origin_file_size / number_of_files
+        splitted_file_size = origin_file_size / number_of_files
 
     if output_file_name is None:
         output_file_name = path.name
@@ -30,7 +30,7 @@ def split_file(path, number_of_files, new_file_size, output_file_name, chunk_siz
             cur_file_path = Path(cur_file_name)
             cur_file_size = 0
             with open(cur_file_path, 'wb') as cur_writing_file:
-                while (cur_file_size < new_file_size if not is_last else True):
+                while (cur_file_size < splitted_file_size if not is_last else True):
                     try:
                         piece = next(file_iter)
                     except StopIteration:
