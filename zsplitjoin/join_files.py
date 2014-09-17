@@ -13,8 +13,8 @@ def join_file(path, output_file_name=None, chunk_size='1K'):
 
     output_file_path.write_file(b'', 'wb')
 
-    with open(output_file_path, 'wb') as exit_file:
+    with open(output_file_path, 'wb') as output_file:
         for cur_file_name in files_iter(path):
             with open(cur_file_name, 'rb') as cur_file:
                 for piece in read_in_chunks(cur_file, chunk_size):
-                    exit_file.write(piece)
+                    output_file.write(piece)
